@@ -1,0 +1,24 @@
+create table users(
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    active TINYINT DEFAULT 0,
+    created_on DATE
+);
+
+INSERT INTO users(name,email,password,active,created_on) VALUES("admin","admin@gmail.com","123456",1,"2021-04-20");
+
+
+create table customers(
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    address TEXT NOT NULL,
+    mobile BIGINT(20) NOT NULL,
+    updated_by INT(6),
+    updated_on DATE,
+    created_by INT (6) NOT NULL,
+    created_on DATE NOT NULL
+);
+
