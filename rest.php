@@ -11,9 +11,6 @@ require_once("constants.php");
         protected $dbConn;
 
         public function __construct(){
-            if($_SERVER['REQUEST_METHOD'] !== 'POST'){
-                $this->throwError(REQUEST_METHOD_NOT_VALID,"Request Method is not valid");
-            }
             $this->request = file_get_contents("php://input");
             $this->validateRequest();
             $db = new DbConnect;

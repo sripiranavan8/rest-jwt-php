@@ -81,11 +81,11 @@
             }
 
             if (null != $this->getAddress()) {
-                $sql .= " address '" . $this->getAddress() . "',";
+                $sql .= " address = '" . $this->getAddress() . "',";
             }
 
             if (null != $this->getMobile()) {
-                $sql .= " mobile '" . $this->getMobile() . "',";
+                $sql .= " mobile = '" . $this->getMobile() . "',";
             }
 
             $sql .= " updated_by = :updatedBy,updated_on = :updatedOn WHERE id = :userId";
@@ -93,8 +93,8 @@
             $stmt = $this->dbConn->prepare($sql);
             $stmt->bindParam(':userId',$this->id);
             $stmt->bindParam(':updatedBy',$this->updatedBy);
-            $stmt->bindParam(':updatedon',$this->updatedOn);
-
+            $stmt->bindParam(':updatedOn',$this->updatedOn);
+            // echo $this->updatedOn;die;
             if ($stmt->execute()) {
                 return true;
             }else{
